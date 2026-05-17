@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 #include "User.h"
 #include "Workout.h"
 #include "StrengthExercise.h"
@@ -5,6 +8,10 @@
 
 int main() {
     User u("Ivan", 20, 75, 180);
+
+    // User obekta trqbva da se suzdava v kozolata
+
+    cout << "User created successfully\n";
 
     Workout* w1 = new Workout();
 
