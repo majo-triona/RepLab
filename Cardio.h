@@ -10,7 +10,7 @@ private:
 public:
     Cardio(string n, int d);
 
-    double calculateVolume() override;
+    double calculateVolume() const override;
     void print() const override;
 
     string getType() const override;

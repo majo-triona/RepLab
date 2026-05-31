@@ -10,9 +10,23 @@ using namespace std;
 int main() {
 
     try {
-        User u("Ivan", 20, 75, 180);
+        string name;
+        int age;
+        double weight, height;
 
-        // User obekta trqbva da se suzdava v konzolata
+        cout << "Enter user name: ";
+        cin >> name;
+
+        cout << "Enter age: ";
+        cin >> age;
+
+        cout << "Enter weight: ";
+        cin >> weight;
+
+        cout << "Enter height: ";
+        cin >> height;
+
+        User u(name, age, weight, height);
 
         cout << "User created successfully\n";
 
