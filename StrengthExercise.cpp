@@ -18,6 +18,14 @@ void StrengthExercise::print() const {
          << endl;
 }
 
+double StrengthExercise::getWeight() const {
+    return weight;
+}
+
+int StrengthExercise::getReps() const {
+    return reps;
+}
+
 string StrengthExercise::getType() const {
     return "S";
 }

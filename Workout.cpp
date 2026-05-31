@@ -35,7 +35,16 @@ void Workout::saveToFile(ofstream& out) const {
     out << exercises.size() << "\n";
 
     for (auto e : exercises) {
-        out << e->getType() << " " << e->getName() << "\n";
+        out << e->getType() << "\n";
+        out << e->getName() << "\n";
+
+        if (e->getType() == "S") {
+            const auto* se = dynamic_cast<const StrengthExercise*>(e);
+            out << se->getWeight() << " " << se->getReps() << "\n";
+        } else if (e->getType() == "C") {
+            const auto* ce = dynamic_cast<const Cardio*>(e);
+            out << ce->getDuration() << "\n";
+        }
     }
 }
 
@@ -45,20 +54,29 @@ void Workout::loadFromFile(ifstream& in) {
     in >> size;
     in.ignore();
 
+    for (auto e : exercises) {
+        delete e;
+    }
     exercises.clear();
 
     for (int i = 0; i < size; i++) {
         string type;
         string name;
 
-        in >> type >> name;
-        in.ignore();
+        getline(in, type);
+        getline(in, name);
 
         if (type == "S") {
-            exercises.push_back(new StrengthExercise(name, 0, 0));
-        }
-        else if (type == "C") {
-            exercises.push_back(new Cardio(name, 0));
+            double weight;
+            int reps;
+            in >> weight >> reps;
+            in.ignore();
+            exercises.push_back(new StrengthExercise(name, weight, reps));
+        } else if (type == "C") {
+            int duration;
+            in >> duration;
+            in.ignore();
+            exercises.push_back(new Cardio(name, duration));
         }
     }
 }

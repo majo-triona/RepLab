@@ -13,6 +13,8 @@ public:
     double calculateVolume() const override;
     void print() const override;
 
+    int getDuration() const;
+
     string getType() const override;
 };
 

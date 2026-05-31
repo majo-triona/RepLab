@@ -51,7 +51,7 @@ void User::updateRecord(string exerciseName, double weightValue) {
 
 void User::showRecords() const {
     cout << "\nPersonal Records:\n";
-    for (auto &r : records) {
+    for (const auto &r : records) {
         r.print();
     }
 }

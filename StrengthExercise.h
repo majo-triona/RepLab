@@ -14,6 +14,9 @@ public:
     double calculateVolume() const override;
     void print() const override;
 
+    double getWeight() const;
+    int getReps() const;
+
     string getType() const override;
 };
 
