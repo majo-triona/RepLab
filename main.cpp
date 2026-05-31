@@ -1,11 +1,11 @@
 #include <iostream>
-
-using namespace std;
-
+#include <fstream>
 #include "User.h"
 #include "Workout.h"
 #include "StrengthExercise.h"
 #include "Cardio.h"
+
+using namespace std;
 
 int main() {
     User u("Ivan", 20, 75, 180);
@@ -21,14 +21,26 @@ int main() {
 
     u.addWorkout(w1);
 
-    u.updateRecord("Bench Press", 80);
-    u.updateRecord("Bench Press", 85);
+    // save
+    ofstream out("workout.txt");
+    if (out.is_open()) {
+        w1->saveToFile(out);
+        out.close();
+    }
 
-    u.showUser();
-    w1->showWorkout();
-    u.showRecords();
+    cout << "Workout saved to file!\n";
+
+    // load
+    Workout* w2 = new Workout();
+
+    ifstream in("workout.txt");
+    if (in.is_open()) {
+        w2->loadFromFile(in);
+        in.close();
+    }
 
     delete w1;
+    delete w2;
 
     return 0;
 }

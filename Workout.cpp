@@ -26,3 +26,17 @@ void Workout::showWorkout() const {
 string Workout::getDate() const {
     return date;
 }
+
+void Workout::saveToFile(ofstream& out) const {
+    out << date << "\n";
+    out << exercises.size() << "\n";
+}
+
+void Workout::loadFromFile(ifstream& in) {
+    int size;
+    getline(in, date);
+    in >> size;
+    in.ignore();
+
+    exercises.clear();
+}

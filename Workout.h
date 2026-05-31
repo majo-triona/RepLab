@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <fstream>
 #include "Exercise.h"
 
 using namespace std;
@@ -19,6 +20,9 @@ public:
     void showWorkout() const;
 
     string getDate() const;
+
+    void saveToFile(ofstream& out) const;
+    void loadFromFile(ifstream& in);
 };
 
 #endif
