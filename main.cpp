@@ -8,39 +8,45 @@
 using namespace std;
 
 int main() {
-    User u("Ivan", 20, 75, 180);
 
-    // User obekta trqbva da se suzdava v kozolata
+    try {
+        User u("Ivan", 20, 75, 180);
 
-    cout << "User created successfully\n";
+        // User obekta trqbva da se suzdava v konzolata
 
-    Workout* w1 = new Workout("2026-06-01");
+        cout << "User created successfully\n";
 
-    w1->addExercise(new StrengthExercise("Bench Press", 80, 10));
-    w1->addExercise(new Cardio("Running", 30));
+        Workout* w1 = new Workout("2026-06-01");
 
-    u.addWorkout(w1);
+        w1->addExercise(new StrengthExercise("Bench Press", 80, 10));
+        w1->addExercise(new Cardio("Running", 30));
 
-    cout << *w1;
+        u.addWorkout(w1);
 
-    ofstream out("workout.txt");
-    if (out.is_open()) {
-        w1->saveToFile(out);
-        out.close();
+        cout << *w1;
+
+        ofstream out("workout.txt");
+        if (out.is_open()) {
+            w1->saveToFile(out);
+            out.close();
+        }
+
+        cout << "Workout saved to file!\n";
+
+        Workout* w2 = new Workout();
+
+        ifstream in("workout.txt");
+        if (in.is_open()) {
+            w2->loadFromFile(in);
+            in.close();
+        }
+
+        delete w1;
+        delete w2;
     }
-
-    cout << "Workout saved to file!\n";
-
-    Workout* w2 = new Workout();
-
-    ifstream in("workout.txt");
-    if (in.is_open()) {
-        w2->loadFromFile(in);
-        in.close();
+    catch (const exception& e) {
+        cout << "Error: " << e.what() << endl;
     }
-
-    delete w1;
-    delete w2;
 
     return 0;
 }

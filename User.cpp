@@ -1,10 +1,21 @@
 #include "User.h"
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
 User::User(string n, int a, double w, double h)
-    : Person(n, a), weight(w), height(h) {}
+    : Person(n, a), weight(w), height(h) {
+
+    if (a <= 0)
+        throw invalid_argument("Age must be positive");
+
+    if (w <= 0)
+        throw invalid_argument("Weight must be positive");
+
+    if (h <= 0)
+        throw invalid_argument("Height must be positive");
+}
 
 void User::showUser() const {
     cout << "User: " << name << " Age: " << age << endl;

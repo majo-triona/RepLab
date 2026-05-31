@@ -5,6 +5,9 @@
 #include "Workout.h"
 #include "PersonalRecord.h"
 #include <vector>
+#include <string>
+
+using namespace std;
 
 class User : public Person {
 private:
