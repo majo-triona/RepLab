@@ -25,6 +25,8 @@ public:
     void saveToFile(ofstream& out) const;
     void loadFromFile(ifstream& in);
 
+    Exercise* findExercise(string name) const;
+
     friend ostream& operator<<(ostream& out, const Workout& w);
 };
 

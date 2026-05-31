@@ -10,9 +10,15 @@ protected:
     string name;
 
 public:
-    Exercise(string n);
+    Exercise(string n) : name(n) {}
+
     virtual double calculateVolume() = 0;
-    virtual void print() = 0;
+    virtual void print() const = 0;
+
+    string getName() const {
+        return name;
+    }
+
     virtual ~Exercise() {}
 };
 

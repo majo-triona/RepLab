@@ -19,6 +19,15 @@ string Workout::getDate() const {
     return date;
 }
 
+Exercise* Workout::findExercise(string searchName) const {
+    for (auto e : exercises) {
+        if (e->getName() == searchName) {
+            return e;
+        }
+    }
+    return nullptr;
+}
+
 void Workout::saveToFile(ofstream& out) const {
     out << date << "\n";
     out << exercises.size() << "\n";
@@ -34,7 +43,7 @@ void Workout::loadFromFile(ifstream& in) {
 }
 
 ostream& operator<<(ostream& out, const Workout& w) {
-    out << "\n===== Workout =====\n";
+    out << "\n===== WORKOUT =====\n";
     out << "Date: " << w.date << "\n";
 
     for (auto e : w.exercises) {

@@ -21,6 +21,16 @@ int main() {
         w1->addExercise(new StrengthExercise("Bench Press", 80, 10));
         w1->addExercise(new Cardio("Running", 30));
 
+        Exercise* found = w1->findExercise("Bench Press");
+
+        if (found != nullptr) {
+            cout << "\nFound exercise:\n";
+            found->print();
+        }
+        else {
+            cout << "\nExercise not found\n";
+        }
+
         u.addWorkout(w1);
         u.weeklySummary();
 
