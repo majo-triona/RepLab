@@ -13,12 +13,14 @@ int main() {
 
     cout << "User created successfully\n";
 
-    Workout* w1 = new Workout();
+    Workout* w1 = new Workout("2026-06-01");
 
     w1->addExercise(new StrengthExercise("Bench Press", 80, 10));
     w1->addExercise(new Cardio("Running", 30));
 
     w1->showWorkout();
+
+    delete w1;
 
     return 0;
 }
