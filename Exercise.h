@@ -12,12 +12,14 @@ protected:
 public:
     Exercise(string n) : name(n) {}
 
-    virtual double calculateVolume() = 0;
+    virtual double calculateVolume() const = 0;
     virtual void print() const = 0;
 
     string getName() const {
         return name;
     }
+
+    virtual string getType() const = 0;
 
     virtual ~Exercise() {}
 };

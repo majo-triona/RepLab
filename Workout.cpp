@@ -1,4 +1,6 @@
 #include "Workout.h"
+#include "StrengthExercise.h"
+#include "Cardio.h"
 #include <iostream>
 
 using namespace std;
@@ -31,6 +33,10 @@ Exercise* Workout::findExercise(string searchName) const {
 void Workout::saveToFile(ofstream& out) const {
     out << date << "\n";
     out << exercises.size() << "\n";
+
+    for (auto e : exercises) {
+        out << e->getType() << " " << e->getName() << "\n";
+    }
 }
 
 void Workout::loadFromFile(ifstream& in) {
@@ -40,6 +46,21 @@ void Workout::loadFromFile(ifstream& in) {
     in.ignore();
 
     exercises.clear();
+
+    for (int i = 0; i < size; i++) {
+        string type;
+        string name;
+
+        in >> type >> name;
+        in.ignore();
+
+        if (type == "S") {
+            exercises.push_back(new StrengthExercise(name, 0, 0));
+        }
+        else if (type == "C") {
+            exercises.push_back(new Cardio(name, 0));
+        }
+    }
 }
 
 ostream& operator<<(ostream& out, const Workout& w) {
@@ -52,6 +73,6 @@ ostream& operator<<(ostream& out, const Workout& w) {
     }
 
     out << "===================\n";
-
+    
     return out;
 }

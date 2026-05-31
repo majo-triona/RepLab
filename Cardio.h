@@ -11,7 +11,9 @@ public:
     Cardio(string n, int d);
 
     double calculateVolume() override;
-    void print() override;
+    void print() const override;
+
+    string getType() const override;
 };
 
 #endif

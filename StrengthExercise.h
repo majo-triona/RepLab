@@ -11,8 +11,10 @@ private:
 public:
     StrengthExercise(string n, double w, int r);
 
-    double calculateVolume() override;
-    void print() override;
+    double calculateVolume() const override;
+    void print() const override;
+
+    string getType() const override;
 };
 
 #endif
