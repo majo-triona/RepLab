@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 #include "User.h"
@@ -18,7 +19,14 @@ int main() {
     w1->addExercise(new StrengthExercise("Bench Press", 80, 10));
     w1->addExercise(new Cardio("Running", 30));
 
+    u.addWorkout(w1);
+
+    u.updateRecord("Bench Press", 80);
+    u.updateRecord("Bench Press", 85);
+
+    u.showUser();
     w1->showWorkout();
+    u.showRecords();
 
     delete w1;
 

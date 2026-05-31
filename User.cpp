@@ -1,14 +1,46 @@
 #include "User.h"
-#include "Workout.h"
 #include <iostream>
+
+using namespace std;
 
 User::User(string n, int a, double w, double h)
     : Person(n, a), weight(w), height(h) {}
+
+void User::showUser() const {
+    cout << "User: " << name << " Age: " << age << endl;
+}
 
 void User::addWorkout(Workout* w) {
     workouts.push_back(w);
 }
 
-void User::showUser() const {
-    cout << "User: " << name << ", Age: " << age << endl;
+void User::showWorkoutHistory() const {
+    cout << "\nWorkout history:\n";
+    for (size_t i = 0; i < workouts.size(); i++) {
+        cout << workouts[i]->getDate() << endl;
+    }
+}
+
+void User::updateRecord(string exerciseName, double weightValue) {
+    bool found = false;
+
+    for (auto &r : records) {
+        if (r.getName() == exerciseName) {
+            r.update(weightValue);
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        PersonalRecord newRecord(exerciseName, weightValue);
+        records.push_back(newRecord);
+    }
+}
+
+void User::showRecords() const {
+    cout << "\nPersonal Records:\n";
+    for (auto &r : records) {
+        r.print();
+    }
 }

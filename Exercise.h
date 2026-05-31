@@ -2,6 +2,7 @@
 #define EXERCISE_H
 
 #include <string>
+
 using namespace std;
 
 class Exercise {
