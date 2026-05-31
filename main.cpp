@@ -22,6 +22,7 @@ int main() {
         w1->addExercise(new Cardio("Running", 30));
 
         u.addWorkout(w1);
+        u.weeklySummary();
 
         cout << *w1;
 
@@ -40,6 +41,9 @@ int main() {
             w2->loadFromFile(in);
             in.close();
         }
+
+        cout << "\nLoaded workout from file:\n";
+        cout << *w2;
 
         delete w1;
         delete w2;

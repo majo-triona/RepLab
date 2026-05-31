@@ -34,7 +34,7 @@ void Workout::loadFromFile(ifstream& in) {
 }
 
 ostream& operator<<(ostream& out, const Workout& w) {
-    out << "\n===== WORKOUT =====\n";
+    out << "\n===== Workout =====\n";
     out << "Date: " << w.date << "\n";
 
     for (auto e : w.exercises) {

@@ -55,3 +55,14 @@ void User::showRecords() const {
         r.print();
     }
 }
+
+void User::weeklySummary() const {
+    cout << "\n===== Weekly summary =====\n";
+    cout << "Total workouts: " << workouts.size() << endl;
+
+    if (workouts.size() == 0) {
+        cout << "No workouts this week.\n";
+    }
+
+    cout << "==========================\n";
+}
