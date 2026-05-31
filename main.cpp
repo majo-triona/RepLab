@@ -21,7 +21,8 @@ int main() {
 
     u.addWorkout(w1);
 
-    // save
+    cout << *w1;
+
     ofstream out("workout.txt");
     if (out.is_open()) {
         w1->saveToFile(out);
@@ -30,7 +31,6 @@ int main() {
 
     cout << "Workout saved to file!\n";
 
-    // load
     Workout* w2 = new Workout();
 
     ifstream in("workout.txt");

@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <iostream>
 #include "Exercise.h"
 
 using namespace std;
@@ -23,6 +24,8 @@ public:
 
     void saveToFile(ofstream& out) const;
     void loadFromFile(ifstream& in);
+
+    friend ostream& operator<<(ostream& out, const Workout& w);
 };
 
 #endif

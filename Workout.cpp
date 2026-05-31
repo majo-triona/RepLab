@@ -12,15 +12,7 @@ void Workout::addExercise(Exercise* e) {
 }
 
 void Workout::showWorkout() const {
-    cout << "\n===== WORKOUT =====\n";
-    cout << "Date: " << date << endl;
-
-    for (auto e : exercises) {
-        e->print();
-        cout << "-------------------\n";
-    }
-
-    cout << "===================\n";
+    cout << *this;
 }
 
 string Workout::getDate() const {
@@ -39,4 +31,18 @@ void Workout::loadFromFile(ifstream& in) {
     in.ignore();
 
     exercises.clear();
+}
+
+ostream& operator<<(ostream& out, const Workout& w) {
+    out << "\n===== WORKOUT =====\n";
+    out << "Date: " << w.date << "\n";
+
+    for (auto e : w.exercises) {
+        e->print();
+        out << "-------------------\n";
+    }
+
+    out << "===================\n";
+
+    return out;
 }
