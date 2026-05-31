@@ -28,6 +28,8 @@ public:
     Exercise* findExercise(string name) const;
 
     friend ostream& operator<<(ostream& out, const Workout& w);
+
+    ~Workout();
 };
 
 #endif

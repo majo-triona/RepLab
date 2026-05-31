@@ -73,6 +73,12 @@ ostream& operator<<(ostream& out, const Workout& w) {
     }
 
     out << "===================\n";
-    
     return out;
+}
+
+Workout::~Workout() {
+    for (int i = 0; i < exercises.size(); i++) {
+        delete exercises[i];
+    }
+    exercises.clear();
 }
