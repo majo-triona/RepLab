@@ -1,4 +1,4 @@
-#include "PersonalRecord.h"
+#include "../include/PersonalRecord.h"
 #include <iostream>
 
 using namespace std;

@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include "User.h"
-#include "Workout.h"
-#include "StrengthExercise.h"
-#include "Cardio.h"
+#include "../include/User.h"
+#include "../include/Workout.h"
+#include "../include/StrengthExercise.h"
+#include "../include/Cardio.h"
 
 using namespace std;
 

@@ -1,4 +1,4 @@
-#include "StrengthExercise.h"
+#include "../include/StrengthExercise.h"
 #include <iostream>
 
 using namespace std;

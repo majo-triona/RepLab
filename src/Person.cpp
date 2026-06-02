@@ -1,4 +1,4 @@
-#include "Person.h"
+#include "../include/Person.h"
 
 Person::Person(string n, int a) {
     name = n;
