@@ -28,7 +28,7 @@ public:
     void updateRecord(string exerciseName, double weight);
     void showRecords() const;
 
-    void weeklySummary() const;   // NEW
+    void weeklySummary() const;
 };
 
 #endif
